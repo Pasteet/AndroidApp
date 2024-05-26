@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AboutUsActivity">
+
+    <TextView
+        android:id="@+id/AboutUsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="About Left Lux"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewAboutUs"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porta nisl quis diam ornare mollis. Aliquam scelerisque eget nulla eget fringilla. Pellentesque a metus volutpat, tincidunt quam vel, condimentum eros. Integer eget dapibus augue. Sed porttitor, nunc in venenatis egestas, risus erat aliquet mi, nec tincidunt augue risus vel tellus. Mauris ut urna felis. Nullam laoreet maximus maximus. Donec porta ipsum non porttitor fringilla. Vestibulum mattis eget felis eget finibus. Donec bibendum massa vel lobortis luctus. Suspendisse feugiat aliquam ex, nec vulputate nunc interdum eget. Aenean eros ipsum, suscipit sit amet pretium id, convallis in ligula. Ut sagittis vehicula lorem quis fringilla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.  Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed at mauris id ante viverra eleifend pretium ut purus. Maecenas eget nisi tincidunt, sagittis nisi a, semper ipsum. Nunc lacus lorem, rhoncus non tincidunt sit amet, tempor at tortor. Ut non erat fringilla, dapibus ex sed, hendrerit nisl. Nam tortor felis, varius non fringilla sollicitudin, semper vel dolor. Nam at diam eget lacus volutpat ultricies. Suspendisse et augue gravida, vestibulum neque ut, venenatis lorem. Phasellus eget leo scelerisque, pulvinar risus vitae, porttitor tellus. Nunc quis lacus lectus. Aliquam sit amet eros nec leo pellentesque mollis.  Duis at risus arcu. Aliquam in sagittis felis. Duis sit amet leo sit amet velit pellentesque gravida ac vel ligula. Cras ut sapien imperdiet, porta massa at, posuere felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam posuere ligula, tempor volutpat metus rutrum at. Proin nisl ipsum, dignissim vitae ipsum venenatis, porttitor fermentum augue. Aenean iaculis viverra mollis. Nam maximus augue sed ligula ultricies, vitae tincidunt felis feugiat. Mauris id efficitur purus, quis ornare mi. In tincidunt lacus risus, faucibus aliquet neque consectetur nec."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutUsTitle" />
+
+    <ImageButton
+        android:id="@+id/CloseBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_dialog" />
+</androidx.constraintlayout.widget.ConstraintLayout>
