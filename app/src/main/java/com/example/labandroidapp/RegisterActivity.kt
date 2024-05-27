@@ -15,18 +15,21 @@ class RegisterActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        //aboutUsBtn
         val aboutUsButton = findViewById<Button>(R.id.AboutUsBtn)
         aboutUsButton.setOnClickListener {
             val intent = Intent(this, AboutUsActivity::class.java)
             startActivity(intent)
         }
 
+        //loginBtn
         val loginButton = findViewById<Button>(R.id.LoginBtn)
         loginButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
+        //registerBtn
         val registerButton = findViewById<Button>(R.id.RegisterBtn)
         registerButton.setOnClickListener {
             val name = findViewById<EditText>(R.id.editTextName).text.toString()
@@ -36,6 +39,7 @@ class RegisterActivity : ComponentActivity() {
 
             val user = User(name = name, surname = surname, email = email, password = password)
 
+            //store new user in DB
             lifecycleScope.launch(Dispatchers.IO) {
                 val db = AppDatabase.getDatabase(this@RegisterActivity)
                 db.userDao().insert(user)

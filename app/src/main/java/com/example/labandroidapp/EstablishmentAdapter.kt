@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-// Adapter to display objects in recyclerView in UI
+// Adapter to display establishment objects in recyclerView in UI
 class EstablishmentAdapter(private val establishments: List<Establishment>) :
     RecyclerView.Adapter<EstablishmentAdapter.EstablishmentViewHolder>() {
 
@@ -39,6 +39,7 @@ class EstablishmentAdapter(private val establishments: List<Establishment>) :
         return EstablishmentViewHolder(view)
     }
 
+    // bind data to views in viewHolder
     override fun onBindViewHolder(holder: EstablishmentViewHolder, position: Int) {
         val establishment = establishments[position]
         holder.nameTextView.text = establishment.name
@@ -46,5 +47,6 @@ class EstablishmentAdapter(private val establishments: List<Establishment>) :
         holder.typeTextView.text = establishment.type
     }
 
+    //return nr of items in dataset
     override fun getItemCount() = establishments.size
 }
