@@ -22,13 +22,18 @@
             android:layout_weight="1"
             android:layout_marginEnd="200dp" />
 
-        <Button
-            android:id="@+id/SettingBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:minWidth="48dp"
             android:layout_weight="1"
-            android:text="Settings" />
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cogwheel" />
+
+
     </LinearLayout>
 
     <TextView
