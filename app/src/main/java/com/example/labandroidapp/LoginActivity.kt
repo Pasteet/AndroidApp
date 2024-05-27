@@ -16,26 +16,32 @@ class LoginActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
+        //backBtn
         val backButton = findViewById<ImageButton>(R.id.BackBtn)
         backButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
+        //aboutUsBtn
         val aboutUsButton = findViewById<Button>(R.id.AboutUsBtn)
         aboutUsButton.setOnClickListener {
             val intent = Intent(this, AboutUsActivity::class.java)
             startActivity(intent)
         }
 
+        //get and check credentials
         val loginButton = findViewById<Button>(R.id.LoginBtn)
         loginButton.setOnClickListener {
             val email = findViewById<EditText>(R.id.editTextTextEmailAddress).text.toString()
             val password = findViewById<EditText>(R.id.editTextTextPassword).text.toString()
 
+            // function for DB operations
             lifecycleScope.launch(Dispatchers.IO) {
-                val db = AppDatabase.getDatabase(this@LoginActivity)
-                val user = db.userDao().getUser(email, password)
+                val db = AppDatabase.getDatabase(this@LoginActivity) // make DB instance
+                val user = db.userDao().getUser(email, password) // query DB for credentials
+                // update UI
                 runOnUiThread {
                     if (user != null) {
                         Toast.makeText(this@LoginActivity, "Login successful!", Toast.LENGTH_SHORT).show()

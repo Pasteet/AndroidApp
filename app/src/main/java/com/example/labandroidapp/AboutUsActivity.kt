@@ -12,6 +12,7 @@ class AboutUsActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_about_us)
 
+        // closeBtn, navigate to register page
         val closeButton = findViewById<ImageButton>(R.id.CloseBtn)
         closeButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)

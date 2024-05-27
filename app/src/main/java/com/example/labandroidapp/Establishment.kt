@@ -9,14 +9,14 @@ import androidx.room.TypeConverters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-@Entity(tableName = "establishments")
+@Entity(tableName = "establishments") //establishments table
 data class Establishment(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val address: String,
     val type: String,
     @TypeConverters(MenuItemConverter::class) val menu: List<MenuItem> = listOf()
-) : Parcelable {
+) : Parcelable { // works by converting data to parcels for storage and transfer, serialization
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,
@@ -77,6 +77,7 @@ data class MenuItem(
     }
 }
 
+//Convert list of menu items to JSON
 class MenuItemConverter {
     @TypeConverter
     fun fromMenuItemList(menu: List<MenuItem>): String {
@@ -84,6 +85,7 @@ class MenuItemConverter {
         return gson.toJson(menu)
     }
 
+    //Convert JSON to list of menu items objects
     @TypeConverter
     fun toMenuItemList(data: String): List<MenuItem> {
         val listType = object : TypeToken<List<MenuItem>>() {}.type

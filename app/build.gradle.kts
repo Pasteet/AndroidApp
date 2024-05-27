@@ -79,6 +79,10 @@ dependencies {
 
     //Gson
     implementation ("com.google.code.gson:gson:2.8.8")
+
+    //Cards
+    implementation ("androidx.cardview:cardview:1.0.0")
+
 }
 
 kapt {

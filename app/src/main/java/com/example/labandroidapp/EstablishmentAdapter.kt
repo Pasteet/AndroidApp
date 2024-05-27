@@ -1,5 +1,6 @@
 package com.example.labandroidapp
 
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+// Adapter to display objects in recyclerView in UI
 class EstablishmentAdapter(private val establishments: List<Establishment>) :
     RecyclerView.Adapter<EstablishmentAdapter.EstablishmentViewHolder>() {
 
+        // viewHolder when scrolling
     inner class EstablishmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView: TextView = view.findViewById(R.id.establishmentName)
         val addressTextView: TextView = view.findViewById(R.id.establishmentAddress)
@@ -29,6 +32,7 @@ class EstablishmentAdapter(private val establishments: List<Establishment>) :
         }
     }
 
+    //inflate layout and create viewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EstablishmentViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_establishment, parent, false)

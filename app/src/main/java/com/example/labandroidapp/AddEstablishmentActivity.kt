@@ -22,13 +22,16 @@ class AddEstablishmentActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_establishment)
 
+        //backBtn, navigate to home
         val backButton = findViewById<ImageButton>(R.id.BackBtn)
         backButton.setOnClickListener {
             val intent = Intent(this, EstablishmentChooserActivity::class.java)
             startActivity(intent)
         }
 
+        //initializing container for menu items dynamically
         menuItemsContainer = findViewById(R.id.menuItemsContainer)
+
 
         val nameEditText = findViewById<EditText>(R.id.editTextEstablishmentName)
         val addressEditText = findViewById<EditText>(R.id.editTextEstablishmentAddress)
@@ -36,39 +39,47 @@ class AddEstablishmentActivity : ComponentActivity() {
         val addButton = findViewById<Button>(R.id.AddEstablishmentBtn)
         val addMenuItemButton = findViewById<Button>(R.id.AddMenuItemBtn)
 
+        //dynamic menu item Btn to add listener
         addMenuItemButton.setOnClickListener {
             addMenuItemView()
         }
 
+        // addEstablishmentBtn
         addButton.setOnClickListener {
             val name = nameEditText.text.toString()
             val address = addressEditText.text.toString()
             val type = typeEditText.text.toString()
 
+            // checking field input
             if (name.isNotEmpty() && address.isNotEmpty() && type.isNotEmpty()) {
                 updateMenuItems()  // Make sure the menuItems list is updated
                 val establishment = Establishment(name = name, address = address, type = type, menu = menuItems)
 
+                //save to DB
                 lifecycleScope.launch(Dispatchers.IO) {
                     val db = AppDatabase.getDatabase(this@AddEstablishmentActivity)
                     db.establishmentDao().insert(establishment)
+                    //Success message
                     runOnUiThread {
                         Toast.makeText(this@AddEstablishmentActivity, "Establishment added!", Toast.LENGTH_SHORT).show()
                         finish()
                     }
                 }
             } else {
+                // Fail message
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
+    //dynamic menu item Btn to add
     private fun addMenuItemView() {
         val inflater = LayoutInflater.from(this)
         val menuItemView = inflater.inflate(R.layout.item_menu, menuItemsContainer, false)
         menuItemsContainer.addView(menuItemView)
     }
 
+    // update menu items data from UI
     private fun updateMenuItems() {
         menuItems.clear()
         for (i in 0 until menuItemsContainer.childCount) {
